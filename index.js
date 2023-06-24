@@ -36,7 +36,7 @@ async function insertJSONIntoSheet() {
 
 
     // Insert the JSON data
-    await sheets.spreadsheets.values.append({
+    await sheets.spreadsheets.values.update({
       spreadsheetId,
       range: `${sheetName}!A1:E`,
       valueInputOption: 'USER_ENTERED',
