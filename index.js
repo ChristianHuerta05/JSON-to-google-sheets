@@ -34,9 +34,16 @@ async function insertJSONIntoSheet() {
       review.date
     ])];
 
+  
+    //clears data on sheet before entering new data
+await sheets.spreadsheets.values.clear({
+  spreadsheetId,
+  range: `${sheetName}!A1:Z100000`
+})
 
     // Insert the JSON data
-    await sheets.spreadsheets.values.append({
+
+    await sheets.spreadsheets.values.update({
       spreadsheetId,
       range: `${sheetName}!A1:E`,
       valueInputOption: 'USER_ENTERED',
